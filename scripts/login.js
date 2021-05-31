@@ -10,7 +10,6 @@ const rl = readline.createInterface({ input: process.stdin, output: process.stdo
 
 const ask = q => new Promise(res => rl.question(q, res));
 
-console.log(" Zion Version")
 
 (async () => {
   console.log("Logging into Hubs Cloud.\n");
