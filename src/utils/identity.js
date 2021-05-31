@@ -94,7 +94,8 @@ function chooseRandom(arr) {
 }
 
 export function generateRandomName() {
-  return `${chooseRandom(names)}-${Math.floor(10000 + Math.random() * 10000)}`;
+  return 'SpacematicsUser'
+  //return `${chooseRandom(names)}-${Math.floor(10000 + Math.random() * 10000)}`;
 }
 
 export async function fetchRandomDefaultAvatarId() {
