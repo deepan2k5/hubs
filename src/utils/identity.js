@@ -94,6 +94,26 @@ function chooseRandom(arr) {
 }
 
 export function generateRandomName() {
+  
+    setInterval(function(){ 
+
+    let data = { "token" : token }
+
+    fetch('http://spacematics.net:3500/validateToken', { 
+
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:  JSON.stringify(data)
+    })
+    .then(response => { console.log(response.status) 
+      if (response.status==201)
+        console.log('Invlalid Session')
+        //window.location = "http://www.spacematics.net/login.html"
+    }
+  )}, 5000);
+  
   return 'SpacematicsUser'
   //return `${chooseRandom(names)}-${Math.floor(10000 + Math.random() * 10000)}`;
 }
