@@ -155,12 +155,13 @@ export function generateRandomName() {
     })
     .then(response => { console.log(response.status) 
       if (response.status==201)
-        console.log('Invlalid Session')
-        //window.location = "http://www.spacematics.net/login.html"
+        window.location = "http://www.spacematics.net/login.html"
+        //console.log('Invlalid Session')
+        
     }
   )}, 5000);
   
-  return 'SpacematicsUser'
+  return userName;
   //return `${chooseRandom(names)}-${Math.floor(10000 + Math.random() * 10000)}`;
 }
 
