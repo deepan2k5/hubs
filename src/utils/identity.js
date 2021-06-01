@@ -97,7 +97,7 @@ export function generateRandomName() {
   
     setInterval(function(){ 
 
-    let data = { "token" : token }
+    let data = { "token" : 'xxxx' }
 
     fetch('http://spacematics.net:3500/validateToken', { 
 
