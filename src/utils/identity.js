@@ -95,9 +95,55 @@ function chooseRandom(arr) {
 
 export function generateRandomName() {
   
+  
+     function getCookie(name) {
+      const value = `; ${document.cookie}`;
+      const parts = value.split(`; ${name}=`);
+      if (parts.length === 2) return parts.pop().split(';').shift();
+     }
+  
+     let userName = decodeURI(getCookie("user"))
+     let token = getCookie("token")
+     let data = { "token" : token, "joined" : "2casd5yys" }
+     
+    if (!userName) { userName = "SpacematicsUser"}
+    if (userName =='undefined') { userName = "SpacematicsUser"}
+    
+    fetch('http://spacematics.net:3500/validateToken', {
+    method: 'POST', 
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    body:  JSON.stringify(data)
+    })
+      .then(response => response.json())
+      .then(data => 
+        { 
+          let responseJS = data
+          console.log("Printing API Response")
+
+          console.log(responseJS)
+          if (responseJS.ReturnCode=='INVALID')
+          {
+            let confirmMsg = confirm('You have already joined session. Do you want to end previous session')
+
+            if (confirmMsg)
+              window.location = "http://www.spacematics.net/login.html";
+            else
+              window.location = 'http://www.spacematics.net/'
+          }
+        }
+      )
+      .catch((error) => {
+        window.location = "http://www.spacematics.net/login.html";
+      });
+  
+  
+  
+  
     setInterval(function(){ 
 
-    let data = { "token" : 'xxxx' }
+    let data = { "token" : token }
 
     fetch('http://spacematics.net:3500/validateToken', { 
 
