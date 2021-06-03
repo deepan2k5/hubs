@@ -103,12 +103,12 @@ export function generateRandomName() {
      }
   
      let userName = decodeURI(getCookie("user"))
-     let token = getCookie("token")
-     let data = { "token" : token, "joined" : "2casd5yys" }
+     //let token = getCookie("token")
+     //let data = { "token" : token, "joined" : "2casd5yys" }
      
     if (!userName) { userName = "SpacematicsUser"}
     if (userName =='undefined') { userName = "SpacematicsUser"}
-    
+    /*
     fetch('http://spacematics.net:3500/validateToken', {
     method: 'POST', 
     headers: {
@@ -160,7 +160,7 @@ export function generateRandomName() {
         
     }
   )}, 5000);
-  
+  */
   return userName;
   //return `${chooseRandom(names)}-${Math.floor(10000 + Math.random() * 10000)}`;
 }
